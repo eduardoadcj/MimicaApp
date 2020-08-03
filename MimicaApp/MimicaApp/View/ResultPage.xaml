@@ -6,10 +6,27 @@
              mc:Ignorable="d"
              x:Class="MimicaApp.View.ResultPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="20">
+
+            <Label Text="Team B"
+                   Margin="0, 60, 0, 0"
+                   FontSize="54"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="LightGreen"/>
+
+            <Label Text="WON!" 
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="36"/>
+
+            <Label Text="120 points" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="Team A"
+                   FontSize="20"
+                   Margin="0, 30, 0, 0"/>
+            <Label Text="30 points"/>
+            
+            <Button Margin="0, 30" Text="Play again"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
