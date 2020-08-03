@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MimicaApp.Model {
-    class Team {
+    public class Team {
+
+        public string Name { get; set; }
+        public short Score { get; set; }
+
     }
 }
