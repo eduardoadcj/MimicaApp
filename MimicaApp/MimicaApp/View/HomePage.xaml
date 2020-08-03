@@ -6,10 +6,60 @@
              mc:Ignorable="d"
              x:Class="MimicaApp.View.HomePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="20" Spacing="10">
+            
+            <StackLayout>
+                <Label Text="Team A:"/>
+                <Entry Placeholder="Enter a team name"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Team B:"/>
+                <Entry Placeholder="Enter a team name"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Game mode:"/>
+                <Picker>
+                    <Picker.Items>
+                        <x:String>Random</x:String>
+                        <x:String>Easy</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Hard</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <Label Text="Time per word:"
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="20 min" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="Center" FontSize="36" 
+                       FontAttributes="Bold"/>
+                <Stepper Maximum="5"
+                         Minimum="1"
+                         Value="1"
+                         HorizontalOptions="End"
+                         VerticalOptions="Center"/>
+            </StackLayout>
+
+            <Label Text="Rounds:" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="20" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="Center" FontSize="36" 
+                       FontAttributes="Bold"/>
+                <Stepper Maximum="15"
+                         Minimum="1"
+                         Value="7" 
+                         HorizontalOptions="End"
+                         VerticalOptions="Center"/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
