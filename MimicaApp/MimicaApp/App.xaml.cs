@@ -8,7 +8,7 @@ namespace MimicaApp {
         public App() {
             InitializeComponent();
 
-            MainPage = new HomePage();
+            MainPage = new GamePage();
         }
 
         protected override void OnStart() {
