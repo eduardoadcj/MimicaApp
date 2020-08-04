@@ -1,5 +1,7 @@
 ﻿using MimicaApp.Model;
 using MimicaApp.Storage;
+using MimicaApp.Util;
+using MimicaApp.Util.Model;
 using MimicaApp.View;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,9 @@ namespace MimicaApp.ViewModel {
                     new PropertyChangedEventArgs(nameProperty));
             }
         }
+
+        private WordGenerator _WordGenerator;
+        private GenWord _GenWord;
 
         private Team _CurrentTeam;
         public Team CurrentTeam {
@@ -106,6 +111,7 @@ namespace MimicaApp.ViewModel {
             Start = new Command(OnStart);
 
             _CurrentTeam = GameSession.Game.TeamA;
+            _WordGenerator = new WordGenerator();
 
             Init();
         }
@@ -113,11 +119,13 @@ namespace MimicaApp.ViewModel {
         private void Init() {
             _Stop = true;
             ChangeStatus("init");
+            _GenWord = _WordGenerator.GetWord(GameSession.Game.Mode);
+            Points = _GenWord.Points;
             Word = "**********";
         }
 
         private void OnReviewWord() {
-            Word = "Dog";
+            Word = _GenWord.Word;
             ChangeStatus("reviewed");
         }
 
