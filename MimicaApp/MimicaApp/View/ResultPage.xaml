@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
 
-            <Label Text="Team B"
+            <Label Text="{Binding WinnerTeam.Name}"
                    Margin="0, 60, 0, 0"
                    FontSize="54"
                    HorizontalOptions="CenterAndExpand"
@@ -18,14 +18,21 @@
                    HorizontalOptions="CenterAndExpand"
                    FontSize="36"/>
 
-            <Label Text="120 points" HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding WinnerTeam.Score}" HorizontalOptions="EndAndExpand"/>
+                <Label Text="points" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
 
-            <Label Text="Team A"
+            <Label Text="{Binding LoserTeam.Name}"
                    FontSize="20"
                    Margin="0, 30, 0, 0"/>
-            <Label Text="30 points"/>
-            
-            <Button Margin="0, 30" Text="Play again"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding LoserTeam.Score}"/>
+                <Label Text="points"/>
+            </StackLayout>
+
+            <Button Margin="0, 30" Text="Play again" Command="{Binding PlayAgain}"/>
             
         </StackLayout>
     </ContentPage.Content>
