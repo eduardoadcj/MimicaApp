@@ -36,7 +36,7 @@ namespace MimicaApp.Util {
             }
 
             Random ran = new Random();
-            int index = ran.Next(0, Words[lvlIndex].Length - 1);
+            int index = ran.Next(0, Words[lvlIndex].Length);
 
             GenWord gw = new GenWord();
             gw.Word = Words[lvlIndex][index];
@@ -48,7 +48,7 @@ namespace MimicaApp.Util {
         public GenWord GetRandomWord() {
             Random ran = new Random();
             int lvlIndex = ran.Next(0, 2);
-            int index = ran.Next(0, Words[lvlIndex].Length - 1);
+            int index = ran.Next(0, Words[lvlIndex].Length);
             GenWord gw = new GenWord();
             gw.Word = Words[lvlIndex][index];
             gw.Points = Levels[lvlIndex];
