@@ -4,7 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MimicaApp.View.ResultPage">
+             x:Class="MimicaApp.View.ResultPage"
+             xmlns:conv="clr-namespace:MimicaApp.View.Util.Converter">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:LabelPointsConverter x:Key="convPoints"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="20">
 
@@ -18,22 +24,16 @@
                    HorizontalOptions="CenterAndExpand"
                    FontSize="36"/>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding WinnerTeam.Score}" HorizontalOptions="EndAndExpand"/>
-                <Label Text="points" HorizontalOptions="StartAndExpand"/>
-            </StackLayout>
+            <Label Text="{Binding WinnerTeam.Score, Converter= {StaticResource convPoints}}" HorizontalOptions="CenterAndExpand"/>
 
             <Label Text="{Binding LoserTeam.Name}"
                    FontSize="20"
                    Margin="0, 30, 0, 0"/>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding LoserTeam.Score}"/>
-                <Label Text="points"/>
-            </StackLayout>
+            <Label Text="{Binding LoserTeam.Score, Converter= {StaticResource convPoints}}"/>
 
             <Button Margin="0, 30" Text="Play again" Command="{Binding PlayAgain}"/>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
