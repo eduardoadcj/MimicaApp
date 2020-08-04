@@ -45,6 +45,7 @@ namespace MimicaApp.ViewModel {
             Game.TeamA = new Team();
             Game.TeamB = new Team();
             StartCommand = new Command(StartGame);
+            Game.Mode = "Easy";
         }
 
         private void StartGame() {
