@@ -10,17 +10,17 @@
             
             <StackLayout>
                 <Label Text="Team A:"/>
-                <Entry Placeholder="Enter a team name"/>
+                <Entry Placeholder="Enter a team name" Text="{Binding Game.TeamA.Name}"/>
             </StackLayout>
 
             <StackLayout>
                 <Label Text="Team B:"/>
-                <Entry Placeholder="Enter a team name"/>
+                <Entry Placeholder="Enter a team name" Text="{Binding Game.TeamB.Name}"/>
             </StackLayout>
 
             <StackLayout>
                 <Label Text="Game mode:"/>
-                <Picker>
+                <Picker SelectedItem="{Binding Game.Mode}">
                     <Picker.Items>
                         <x:String>Random</x:String>
                         <x:String>Easy</x:String>
@@ -34,13 +34,13 @@
                        HorizontalOptions="FillAndExpand" 
                        VerticalOptions="Center"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="20 min" 
+                <Label Text="{Binding WordTime}" 
                        HorizontalOptions="FillAndExpand" 
                        VerticalOptions="Center" FontSize="36" 
                        FontAttributes="Bold"/>
                 <Stepper Maximum="5"
                          Minimum="1"
-                         Value="1"
+                         Value="{Binding WordTime}"
                          HorizontalOptions="End"
                          VerticalOptions="Center"/>
             </StackLayout>
@@ -49,16 +49,18 @@
                        HorizontalOptions="FillAndExpand" 
                        VerticalOptions="Center"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="20" 
+                <Label Text="{Binding Rounds}" 
                        HorizontalOptions="FillAndExpand" 
                        VerticalOptions="Center" FontSize="36" 
                        FontAttributes="Bold"/>
                 <Stepper Maximum="15"
                          Minimum="1"
-                         Value="7" 
+                         Value="{Binding Rounds}" 
                          HorizontalOptions="End"
                          VerticalOptions="Center"/>
             </StackLayout>
+
+            <Button Text="Start" Command="{Binding StartCommand}"/>
 
         </StackLayout>
     </ContentPage.Content>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MimicaApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace MimicaApp.View {
     public partial class HomePage : ContentPage {
         public HomePage() {
             InitializeComponent();
+            BindingContext = new HomeViewModel();
         }
     }
 }

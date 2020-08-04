@@ -9,26 +9,32 @@
         <StackLayout Padding="20">
 
             <StackLayout>
-                <Label Text="Team A" FontAttributes="Bold"/>
-                <Label Text="Points 0" FontSize="16"/>
-                <Label Text="***************" HorizontalOptions="CenterAndExpand" FontSize="42"/>
-                <Button Text="Review"/>
+                <Label Text="{Binding CurrentTeamName}" FontAttributes="Bold"/>
+                <Label Text="{Binding Points}" FontSize="16"/>
+                <Label Text="{Binding Word}"  HorizontalOptions="CenterAndExpand" FontSize="42"/>
+                <Button Text="Review" IsVisible="{Binding IsReviewWordButtonVisible}" Command="{Binding ReviewWord}"/>
             </StackLayout>
             
-            <StackLayout VerticalOptions="End" Spacing="0">
+            <StackLayout VerticalOptions="End" Spacing="0" IsVisible="{Binding IsCountContainerVisible}">
                 
-                <Label Text="200" FontSize="100" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{Binding TimeText}" FontSize="100" HorizontalOptions="Center"/>
                 <Label Text="seconds" FontSize="16" HorizontalOptions="CenterAndExpand"/>
 
                 <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0">
-                    <Button Text="Got it" BackgroundColor="LightGreen" HorizontalOptions="EndAndExpand"/>
-                    <Button Text="Failed" BackgroundColor="Red" HorizontalOptions="StartAndExpand"/>
+                    <Button Text="Got it" 
+                            BackgroundColor="LightGreen"
+                            HorizontalOptions="EndAndExpand"
+                            Command="{Binding GotIt}"/>
+                    <Button Text="Failed"
+                            BackgroundColor="Red"
+                            HorizontalOptions="StartAndExpand"
+                            Command="{Binding Failed}"/>
                 </StackLayout>
                 
             </StackLayout>
-            
-            <StackLayout>
-                <Button Text="Start"/>
+
+            <StackLayout IsVisible="{Binding IsStartButtonVisible}">
+                <Button Text="Start" Command="{Binding Start}"/>
             </StackLayout>
             
         </StackLayout>
