@@ -105,10 +105,12 @@ namespace MimicaApp.ViewModel {
 
             _CurrentTeam = GameSession.Game.TeamA;
 
+            Init();
+        }
+
+        private void Init() {
             ChangeStatus("init");
-
             Word = "**********";
-
         }
 
         private void OnReviewWord() {
@@ -138,14 +140,14 @@ namespace MimicaApp.ViewModel {
 
         private void OnStart() {
             ChangeStatus("counting");
-
-            int i = GameSession.Game.WordTime * 60;
+            _Stop = false;
+            int i = GameSession.Game.WordTime;
+            TimeText = i.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 TimeText = i.ToString();
                 i--;
                 return i >= 0 && !_Stop;
             });
-
         }
 
         private void OnGotIt() {
@@ -164,6 +166,7 @@ namespace MimicaApp.ViewModel {
             } else {
                 CurrentTeam = GameSession.Game.TeamA;
             }
+            Init();
         }
 
     }

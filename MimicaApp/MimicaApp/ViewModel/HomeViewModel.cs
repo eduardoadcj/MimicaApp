@@ -20,7 +20,7 @@ namespace MimicaApp.ViewModel {
 
         public Game Game { get; set; }
 
-        private short _WordTime = 1;
+        private short _WordTime = 30;
         public short WordTime {
             get { return _WordTime; }
             set {
