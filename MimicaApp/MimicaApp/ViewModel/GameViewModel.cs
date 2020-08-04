@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace MimicaApp.ViewModel {
@@ -110,6 +111,7 @@ namespace MimicaApp.ViewModel {
         }
 
         private void Init() {
+            _Stop = true;
             ChangeStatus("init");
             Word = "**********";
         }
@@ -140,15 +142,24 @@ namespace MimicaApp.ViewModel {
         }
 
         private void OnStart() {
-            ChangeStatus("counting");
+            if (!_Stop) //Previnindo clicks enquanto o callback é chamado
+                return;
+
             _Stop = false;
             int i = GameSession.Game.WordTime;
-            TimeText = i.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 TimeText = i.ToString();
+                if (i == GameSession.Game.WordTime) {
+                    ChangeStatus("counting");
+                }
                 i--;
-                return i >= 0 && !_Stop;
+                if(i < 0) {
+                    TimeText = "Time Out!";
+                    return false;
+                }
+                return !_Stop;
             });
+
         }
 
         private void OnGotIt() {
