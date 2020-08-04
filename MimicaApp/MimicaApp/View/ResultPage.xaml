@@ -14,18 +14,36 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
 
-            <Label Text="{Binding WinnerTeam.Name}"
+            <StackLayout IsVisible="{Binding IsWinnerContainerVisible}">
+                
+                <Label Text="{Binding WinnerTeam.Name}"
                    Margin="0, 60, 0, 0"
                    FontSize="54"
                    HorizontalOptions="CenterAndExpand"
                    TextColor="LightGreen"/>
 
-            <Label Text="WON!" 
+                <Label Text="WON!" 
                    HorizontalOptions="CenterAndExpand"
                    FontSize="36"/>
 
-            <Label Text="{Binding WinnerTeam.Score, Converter= {StaticResource convPoints}}" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{Binding WinnerTeam.Score, Converter= {StaticResource convPoints}}" HorizontalOptions="CenterAndExpand"/>
 
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsTiedContainerVisible}">
+                
+                <Label Text="Tied!"
+                   Margin="0, 60, 0, 0"
+                   FontSize="64"
+                   HorizontalOptions="CenterAndExpand"/>
+                
+                <Label Text="{Binding WinnerTeam.Name}"
+                   FontSize="20"
+                   Margin="0, 30, 0, 0"/>
+                <Label Text="{Binding WinnerTeam.Score, Converter= {StaticResource convPoints}}"/>
+                
+            </StackLayout>
+            
             <Label Text="{Binding LoserTeam.Name}"
                    FontSize="20"
                    Margin="0, 30, 0, 0"/>

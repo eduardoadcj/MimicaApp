@@ -16,6 +16,10 @@ namespace MimicaApp.ViewModel {
             }
         }
 
+        public bool IsWinnerContainerVisible { get; set; }
+
+        public bool IsTiedContainerVisible { get; set; }
+
         public Team WinnerTeam { get; set; }
         public Team LoserTeam { get; set; }
 
@@ -25,6 +29,17 @@ namespace MimicaApp.ViewModel {
             PlayAgain = new Command(OnPlayAgain);
             WinnerTeam = GameSession.Game.GetWinner();
             LoserTeam = GameSession.Game.GetLoser();
+
+            if(WinnerTeam == LoserTeam) {
+                WinnerTeam = GameSession.Game.TeamA;
+                LoserTeam = GameSession.Game.TeamB;
+                IsTiedContainerVisible = true;
+                IsWinnerContainerVisible = false;
+            } else {
+                IsTiedContainerVisible = false;
+                IsWinnerContainerVisible = true;
+            }
+
         }
 
         private void OnPlayAgain() {
