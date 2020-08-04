@@ -64,6 +64,5 @@ namespace MimicaApp.ViewModel {
             App.Current.MainPage = new GamePage();
         }
 
-
     }
 }

@@ -24,8 +24,9 @@
 
                 <StackLayout BackgroundColor="LightBlue" Margin="0, 50, 0, 0" Padding="10">
                     <Label Text="{Binding Word}" 
-                       HorizontalOptions="CenterAndExpand" 
-                       FontSize="42"/>
+                        HorizontalOptions="CenterAndExpand" 
+                        FontSize="42"
+                        TextColor="Black"/>
                 </StackLayout>
                 
                 <Button Text="Review" IsVisible="{Binding IsReviewWordButtonVisible}" Command="{Binding ReviewWord}"/>
