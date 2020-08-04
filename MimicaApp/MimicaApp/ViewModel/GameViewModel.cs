@@ -1,5 +1,6 @@
 ﻿using MimicaApp.Model;
 using MimicaApp.Storage;
+using MimicaApp.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -165,8 +166,14 @@ namespace MimicaApp.ViewModel {
                 CurrentTeam = GameSession.Game.TeamB;
             } else {
                 CurrentTeam = GameSession.Game.TeamA;
+                GameSession.CurrentRound++;
             }
-            Init();
+
+            if(GameSession.CurrentRound > GameSession.Game.Rounds) {
+                App.Current.MainPage = new ResultPage();
+            } else {
+                Init();
+            }
         }
 
     }
