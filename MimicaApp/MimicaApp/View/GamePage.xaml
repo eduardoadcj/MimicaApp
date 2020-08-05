@@ -22,12 +22,12 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout BackgroundColor="LightBlue" Margin="0, 50, 0, 0" Padding="10">
+                <Frame BackgroundColor="LightBlue" Margin="0, 50, 0, 0" Padding="20">
                     <Label Text="{Binding Word}" 
                         HorizontalOptions="CenterAndExpand" 
                         FontSize="42"
                         TextColor="Black"/>
-                </StackLayout>
+                </Frame>
                 
                 <Button Text="Review" IsVisible="{Binding IsReviewWordButtonVisible}" Command="{Binding ReviewWord}"/>
             </StackLayout>
